@@ -20,21 +20,23 @@ Features
 Dependencies
 ============
 
-On Arch Linux:
+You will need to install [PlatformIO](https://platformio.org/) to build and
+upload the firmware.
 
-`# yay -S arduino-avr-core arduino-mk-git`
+There are required [udev rules](https://docs.platformio.org/en/latest/faq.html#platformio-udev-rules)
+for Linux users.
 
 Building
 ========
 
-Simply run `make` from the repository root. This currently builds for the Arduino Uno _only_, and only on Linux.
+Simply run `platformio run` from the project root.
 
 The single most important configuration file is "config.h". The file is self-documented. Here is where you set up your callsign, among other things.
 
 Flashing
 ========
 
-While connnected via serial to your Arduino, run `make upload` from the repository root. This also only works on Linux, but binary files are put in the `builds/src/uno` directory if you wish to transport them across devices.
+While connnected via serial to your Arduino, run `platformio run --target upload` from the repository root.
 
 **Important**: When flashing the Arduino/Uno32, remove the Venus GPS or the entire Trackuino shield. After flashing the firmware, you can plug it back in. The GPS and the host computer share the same serial port on the AVR, so they will conflict when used together.
 
