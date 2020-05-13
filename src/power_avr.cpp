@@ -71,7 +71,7 @@ void power_save()
   pin_write(LED_PIN, LOW);
   sleep_mode();    // Go to sleep
   pin_write(LED_PIN, HIGH);
-  
+
   sleep_disable();  // Resume after wake up
   power_all_enable();
 }
