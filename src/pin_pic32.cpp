@@ -12,45 +12,40 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+ * USA.
  */
 #ifdef PIC32MX
 
-#include "pin.h"
-#include <plib.h>
-#include <stdint.h>
-#include <WProgram.h>
+	#include "pin.h"
+	#include <WProgram.h>
+	#include <plib.h>
+	#include <stdint.h>
 
 // This is a digitalWrite() replacement that does not disrupt
 // timer 2.
-void pin_write(uint8_t pin, uint8_t val)
-{
-  volatile p32_ioport * iop;
-  uint8_t         port;
-  uint16_t        bit;
-  //* Get the port number for this pin.
-  if ((pin >= NUM_DIGITAL_PINS) || ((port = digitalPinToPort(pin)) == NOT_A_PIN))
-  {
-    return;
-  }
+void pin_write(uint8_t pin, uint8_t val) {
+	volatile p32_ioport *iop;
+	uint8_t port;
+	uint16_t bit;
+	//* Get the port number for this pin.
+	if ((pin >= NUM_DIGITAL_PINS)
+		|| ((port = digitalPinToPort(pin)) == NOT_A_PIN)) {
+		return;
+	}
 
-  //* Obtain pointer to the registers for this io port.
-  iop = (p32_ioport *)portRegisters(port);
+	//* Obtain pointer to the registers for this io port.
+	iop = (p32_ioport *) portRegisters(port);
 
-  //* Obtain bit mask for the specific bit for this pin.
-  bit = digitalPinToBitMask(pin);
+	//* Obtain bit mask for the specific bit for this pin.
+	bit = digitalPinToBitMask(pin);
 
-  //* Set the pin state
-  if (val == LOW)
-  {
-    iop->lat.clr = bit;
-  }
-  else
-  {
-    iop->lat.set = bit;
-  }
+	//* Set the pin state
+	if (val == LOW) {
+		iop->lat.clr = bit;
+	} else {
+		iop->lat.set = bit;
+	}
 }
 
-
 #endif // PIC32MX
-

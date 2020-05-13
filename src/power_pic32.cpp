@@ -12,20 +12,20 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+ * USA.
  */
 #ifdef PIC32MX
 
-#include <plib.h>
-#include <WProgram.h>
-#include "config.h"
-#include "pin.h"
+	#include "config.h"
+	#include "pin.h"
+	#include <WProgram.h>
+	#include <plib.h>
 
-void power_save()
-{
-  pin_write(LED_PIN, LOW);
-  PowerSaveIdle();
-  pin_write(LED_PIN, HIGH);
+void power_save() {
+	pin_write(LED_PIN, LOW);
+	PowerSaveIdle();
+	pin_write(LED_PIN, HIGH);
 }
 
 #endif // #ifdef PIC32MX

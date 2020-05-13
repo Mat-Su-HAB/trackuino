@@ -12,7 +12,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+ * USA.
  */
 
 #ifndef __GPS_H__
@@ -20,9 +21,9 @@
 
 #include <stdint.h>
 
-extern char gps_time[7];       // HHMMSS
-extern uint32_t gps_seconds;   // seconds after midnight
-extern char gps_date[7];       // DDMMYY
+extern char gps_time[7]; // HHMMSS
+extern uint32_t gps_seconds; // seconds after midnight
+extern char gps_date[7]; // DDMMYY
 extern float gps_lat;
 extern float gps_lon;
 extern char gps_aprs_lat[9];
