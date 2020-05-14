@@ -164,8 +164,8 @@ void parse_status(const char *token) {
 
 void parse_lat(const char *token) {
 	// Parses latitude in the format "DD" + "MM" (+ ".M{...}M")
-	char degs[3];
 	if (strlen(token) >= 4) {
+		char degs[3];
 		degs[0] = token[0];
 		degs[1] = token[1];
 		degs[2] = '\0';
@@ -185,8 +185,8 @@ void parse_lat_hemi(const char *token) {
 
 void parse_lon(const char *token) {
 	// Longitude is in the format "DDD" + "MM" (+ ".M{...}M")
-	char degs[4];
 	if (strlen(token) >= 5) {
+		char degs[4];
 		degs[0] = token[0];
 		degs[1] = token[1];
 		degs[2] = token[2];
