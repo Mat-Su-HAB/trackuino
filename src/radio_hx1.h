@@ -23,9 +23,9 @@
 
 class RadioHx1: public Radio {
     public:
-	virtual void setup();
-	virtual void ptt_on();
-	virtual void ptt_off();
+	void setup() override;
+	void ptt_on() override;
+	void ptt_off() override;
 };
 
 #endif
