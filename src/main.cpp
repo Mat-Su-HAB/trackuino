@@ -127,6 +127,7 @@ void get_pos() {
 	}
 }
 
+// cppcheck-suppress unusedFunction
 void loop() {
 	// Time for another APRS frame
 	if ((int32_t)(millis() - next_aprs) >= 0) {

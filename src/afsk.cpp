@@ -117,13 +117,6 @@ inline static uint8_t afsk_fifo_out() {
 	return s;
 }
 
-inline static uint8_t afsk_fifo_out_safe() {
-	noInterrupts();
-	uint8_t b = afsk_fifo_out();
-	interrupts();
-	return b;
-}
-
 // Exported functions
 
 void afsk_setup() {

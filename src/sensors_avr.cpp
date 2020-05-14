@@ -70,21 +70,6 @@ void sensors_setup() {
 	pinMode(EXTERNAL_LM60_VS_PIN, OUTPUT);
 }
 
-long sensors_internal_temp() {
-	long result;
-	// Read temperature sensor against 1.1V reference
-	ADMUX = _BV(REFS1) | _BV(REFS0) | _BV(MUX3);
-	delay(2); // Wait for Vref to settle
-	ADCSRA |= _BV(ADSC); // Convert
-	while (bit_is_set(ADCSRA, ADSC))
-		;
-	result = (ADCH << 8) | ADCL;
-
-	result = (result - 125) * 1075;
-
-	return result;
-}
-
 int sensors_lm60(int powerPin, int readPin) {
 	pin_write(powerPin, HIGH); // Turn the LM60 on
 	analogReference(INTERNAL); // Ref=1.1V. Okay up to 108 degC (424
